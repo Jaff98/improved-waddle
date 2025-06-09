@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Design - Solaris</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../service-details.css">
+</head>
+<body>
+    <!-- Header with Back Button -->
+    <header class="service-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </a>
+                <div class="enterprise-badge">
+                    <span>ENTERPRISE-GRADE</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Service Details Main Content -->
+    <main class="service-details">
+        <div class="container">
+            <div class="service-title">
+                <i class="fas fa-paint-brush"></i> UI/UX Design <span class="badge">User-Centered</span>
+            </div>
+            
+            <div class="service-description">
+                <p>Our design team creates beautiful, intuitive interfaces that enhance user engagement and satisfaction. We follow a user-centered design approach, combining aesthetics with functionality to deliver exceptional digital experiences that drive business results.</p>
+            </div>
+
+            <!-- Service Categories -->
+            <div class="service-categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>User Interface Design</h3>
+                    <span class="badge">Intuitive</span>
+                    <p>Visually stunning and highly functional interfaces that align with your brand identity. We create designs that are not only beautiful but also intuitive and easy to navigate across all devices.</p>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>User Experience Research</h3>
+                    <span class="badge">Data-Driven</span>
+                    <p>Comprehensive user research, persona development, and journey mapping to understand your users' needs and behaviors. Our research-driven approach ensures we create experiences that truly resonate with your target audience.</p>
+                </div>
+            </div>
+
+            <!-- Development Process -->
+            <div class="development-section">
+                <h2>Our Design Process:</h2>
+                <ul class="process-list">
+                    <li><i class="fas fa-check-circle"></i> User research & competitive analysis</li>
+                    <li><i class="fas fa-check-circle"></i> Information architecture & user flows</li>
+                    <li><i class="fas fa-check-circle"></i> Wireframing & prototyping</li>
+                    <li><i class="fas fa-check-circle"></i> Visual design & brand integration</li>
+                    <li><i class="fas fa-check-circle"></i> Usability testing & iteration</li>
+                </ul>
+            </div>
+
+            <!-- Development Expertise -->
+            <div class="expertise-section">
+                <h2>Our Design Expertise:</h2>
+                <p>Discover how we transform complex user problems into elegant design solutions. Our user-centered approach ensures that every design decision enhances the overall user experience.</p>
+                
+                <div class="WebDev">
+                    <video width="100%" height="450" controls poster="assets/video-thumbnail.jpg" autoplay muted playsinline loop controls>
+                        <source src="assets/videos/UIUXDesign.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Technology Stack -->
+            <div class="technology-stack">
+                <h2>Design Tools & Technologies:</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-figma"></i>
+                        <span>Figma</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-adobe"></i>
+                        <span>Adobe XD</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-sketch"></i>
+                        <span>Sketch</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-layer-group"></i>
+                        <span>InVision</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-adobe"></i>
+                        <span>Photoshop</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-adobe"></i>
+                        <span>Illustrator</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-sitemap"></i>
+                        <span>Miro</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Hotjar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="service-cta">
+                <h2>Ready to elevate your digital experience?</h2>
+                <p>Let's discuss how our UI/UX design expertise can help transform your digital presence and delight your users.</p>
+                <a href="../index.html#contact" class="btn btn-primary">Contact Us <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <span class="logo-text">Solaris</span>
+                    </div>
+                    <p>Solaris is a leading digital solutions provider specializing in custom software development, web and mobile applications, UI/UX design, and AI integration.</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 Solaris Co. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <script>
+// Hide service header on scroll down, show on scroll up
+let lastScrollY = window.scrollY;
+const serviceHeader = document.querySelector('.service-header');
+
+window.addEventListener('scroll', () => {
+    if (!serviceHeader) return;
+    if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        // Scrolling down
+        serviceHeader.style.transform = 'translateY(-100%)';
+    } else {
+        // Scrolling up
+        serviceHeader.style.transform = 'translateY(0)';
+    }
+    lastScrollY = window.scrollY;
+});
+</script>
+</body>
+</html>

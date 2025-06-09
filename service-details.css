@@ -1,0 +1,274 @@
+/* Service Details Page Styles */
+:root {
+    --dark-bg: #f8f8f8; /* match index page background */
+    --darker-bg: #fff;   /* white for header background */
+    --card-bg: #fff;     /* white for cards */
+    --primary-color: #ff7e5f;      /* Vibrant coral (from index) */
+    --primary-light: #feb47b;      /* Soft orange (from index) */
+    --accent-color: #6a82fb;       /* Blue-purple gradient (from index) */
+    --text-color: #22223b;         /* Dark text (from index) */
+    --text-light: #4a4e69;         /* Muted text (from index) */
+    --border-radius: 12px;
+    --border-radius-lg: 18px;
+    --shadow: 0 4px 20px rgba(255, 126, 95, 0.10);
+    --transition: all 0.3s cubic-bezier(.4,2,.6,1);
+}
+
+/* Service Header */
+.service-header {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(252, 92, 125, 0.08);
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+}
+
+.service-header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo-img {
+    width: 150px;
+    height: auto;
+}
+
+.back-button i {
+    margin-right: 0.5rem;
+}
+
+.back-button:hover {
+    color: var(--primary-color);
+}
+
+.enterprise-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Service Details Main Content */
+.service-details {
+    padding: 3rem 0;
+    background: var(--dark-bg);
+    min-height: calc(100vh - 60px);
+}
+
+.service-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.service-title i {
+    margin-right: 1rem;
+    color: var(--accent-color);
+}
+
+.badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 1rem;
+}
+
+.service-description {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    max-width: 900px;
+}
+
+/* Service Categories */
+.service-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.category-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 126, 95, 0.15);
+}
+
+.category-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.category-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.category-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+
+/* Development Process */
+.development-section, 
+.expertise-section {
+    margin-bottom: 3rem;
+}
+
+.development-section h2,
+.expertise-section h2,
+.technology-stack h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.process-list {
+    list-style: none;
+    padding: 0;
+}
+
+.process-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.process-list li i {
+    color: var(--accent-color);
+    margin-right: 1rem;
+}
+
+/* Video Placeholder */
+.video-placeholder {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.video-placeholder:hover {
+    background: #f7f7fa;
+}
+
+.video-placeholder i {
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+/* Technology Stack */
+.technology-stack {
+    margin-bottom: 3rem;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+}
+
+.tech-item {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.tech-item:hover {
+    transform: translateY(-5px);
+    background: #f7f7fa;
+}
+
+.tech-item i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.tech-item span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* CTA Section */
+.service-cta {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.service-cta h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.service-cta p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .service-title {
+        font-size: 1.8rem;
+    }
+    
+    .service-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .service-cta {
+        padding: 2rem;
+    }
+}
