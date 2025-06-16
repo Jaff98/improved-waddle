@@ -482,7 +482,9 @@ class SolarisWebsite {
      */
     initializeScrollEffects() {
         const header = document.querySelector('.header');
-        if (!header) return;
+        const serviceHeader = document.querySelector('.service-header');
+        
+        if (!header && !serviceHeader) return;
 
         let lastScrollY = window.scrollY;
         let ticking = false;
@@ -490,10 +492,22 @@ class SolarisWebsite {
         const updateHeader = () => {
             const currentScrollY = window.scrollY;
             
-            if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
+            // Handle main header if it exists
+            if (header) {
+                if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+            }
+            
+            // Handle service header if it exists
+            if (serviceHeader) {
+                if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                    serviceHeader.style.transform = 'translateY(-100%)';
+                } else {
+                    serviceHeader.style.transform = 'translateY(0)';
+                }
             }
             
             lastScrollY = currentScrollY;

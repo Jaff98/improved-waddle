@@ -1,16 +1,23 @@
 /* Service Details Page Styles */
 :root {
-    --dark-bg: #f8f8f8; /* match index page background */
-    --darker-bg: #fff;   /* white for header background */
-    --card-bg: #fff;     /* white for cards */
-    --primary-color: #ff7e5f;      /* Vibrant coral (from index) */
-    --primary-light: #feb47b;      /* Soft orange (from index) */
-    --accent-color: #6a82fb;       /* Blue-purple gradient (from index) */
-    --text-color: #22223b;         /* Dark text (from index) */
-    --text-light: #4a4e69;         /* Muted text (from index) */
-    --border-radius: 12px;
-    --border-radius-lg: 18px;
-    --shadow: 0 4px 20px rgba(255, 126, 95, 0.10);
+    /* Mapped variables to use the theme from styles.css */
+    --dark-bg: var(--bg-primary);
+    --darker-bg: var(--bg-secondary);
+    --card-bg: var(--bg-secondary);
+    --text-color: var(--text-primary);
+    --text-light: var(--text-secondary);
+    --shadow: var(--shadow-md);
+
+    /* Alias for accent-color to use styles.css's --secondary-color (teal) */
+    /* Rules in this file using var(--accent-color) will now use teal. */
+    /* If styles.css's orange --accent-color is preferred, remove this line. */
+    --accent-color: var(--secondary-color);
+
+    /* --primary-color & --primary-light are not defined here; they will be inherited from styles.css */
+    /* --border-radius & --border-radius-lg are not defined here; they will be inherited from styles.css */
+    /* styles.css defines --border-radius: 12px and --border-radius-lg: 20px */
+
+    /* Specific transition for this file, if different from styles.css options */
     --transition: all 0.3s cubic-bezier(.4,2,.6,1);
 }
 
@@ -21,7 +28,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(252, 92, 125, 0.08);
+    box-shadow: var(--shadow-sm); /* Updated shadow */
     transition: transform 0.3s cubic-bezier(.4,2,.6,1);
 }
 
@@ -50,17 +57,19 @@
 }
 
 .back-button:hover {
-    color: var(--primary-color);
+    color: var(--text-primary); /* Changed to ensure visibility */
 }
 
 .enterprise-badge {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--accent-color); /* Changed to accent color (teal) */
+    color: var(--text-primary);
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.5px;
+    border: 1px solid var(--primary-light); /* Added a subtle border */
+    box-shadow: var(--shadow-sm); /* Added a subtle shadow */
 }
 
 /* Service Details Main Content */
@@ -86,7 +95,7 @@
 
 .badge {
     background-color: var(--accent-color);
-    color: white;
+    color: var(--text-primary); /* Updated text color */
     padding: 0.3rem 0.6rem;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -120,7 +129,7 @@
 
 .category-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 126, 95, 0.15);
+    box-shadow: var(--shadow-lg); /* Updated shadow */
 }
 
 .category-icon {
@@ -187,7 +196,7 @@
 }
 
 .video-placeholder:hover {
-    background: #f7f7fa;
+    background: var(--bg-tertiary); /* Updated background */
 }
 
 .video-placeholder i {
@@ -217,6 +226,10 @@
 .tech-item:hover {
     transform: translateY(-5px);
     background: #f7f7fa;
+}
+
+.tech-item:hover span {
+    color: var(--dark-bg); /* Ensure text is readable on light hover background */
 }
 
 .tech-item i {

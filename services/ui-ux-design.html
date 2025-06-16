@@ -19,9 +19,7 @@
                 <a href="../index.html" class="back-button">
                     <i class="fas fa-arrow-left"></i> Back to Dashboard
                 </a>
-                <div class="enterprise-badge">
-                    <span>ENTERPRISE-GRADE</span>
-                </div>
+
             </div>
         </div>
     </header>
@@ -145,28 +143,12 @@
                     <p>Solaris is a leading digital solutions provider specializing in custom software development, web and mobile applications, UI/UX design, and AI integration.</p>
                 </div>
                 <div class="copyright">
-                    <p>&copy; 2023 Solaris Co. All rights reserved.</p>
+                    <p>&copy; 2025 Solaris Co. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-   <script>
-// Hide service header on scroll down, show on scroll up
-let lastScrollY = window.scrollY;
-const serviceHeader = document.querySelector('.service-header');
-
-window.addEventListener('scroll', () => {
-    if (!serviceHeader) return;
-    if (window.scrollY > lastScrollY && window.scrollY > 80) {
-        // Scrolling down
-        serviceHeader.style.transform = 'translateY(-100%)';
-    } else {
-        // Scrolling up
-        serviceHeader.style.transform = 'translateY(0)';
-    }
-    lastScrollY = window.scrollY;
-});
-</script>
+<script src="../script.js" defer></script>
 </body>
 </html>
