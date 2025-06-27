@@ -277,9 +277,16 @@ a:hover {
 }
 
 .logo-img {
-  width: 40px;
-  height: 40px;
-  filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
+    background: #ffffff; /* Change this to any color you like, e.g. #222, #7c3aed, etc. */
+    border-radius: 75%;
+    padding: 8px;
+    display: block;
+}
+
+.logo-img:hover, .logo-img:focus {
+    transform: scale(1.08) rotate(-6deg);
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.35), 0 3px 16px rgba(6, 182, 212, 0.25);
+    outline: none;
 }
 
 .logo-text {
