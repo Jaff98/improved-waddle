@@ -1,9 +1,9 @@
 <?php
 // Database Configuration
-define('DB_HOST', 'localhost'); 
-define('DB_NAME', 'solaris_website');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', 'localhost:3306'); 
+define('DB_NAME', 'solabdmh_solaris_db');
+define('DB_USER', 'solabdmh_balen');
+define('DB_PASS', 'Dolaby@jaf123');
 
 // Email Configuration
 

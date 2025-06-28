@@ -394,8 +394,11 @@ async handleFormSubmission(form, fields) {
     try {
         const formData = new FormData(form);
         
-     
+     // chnage the action to connect.php if not worked.
         const response = await fetch('connect.php', {
+
+
+
             method: 'POST',
             body: formData,
             headers: {
