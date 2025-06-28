@@ -365,64 +365,80 @@ class SolarisWebsite {
 
     /**
      * Handle form submission
-     */
-    async handleFormSubmission(form, fields) {
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const messageDiv = document.getElementById('formMessage');
-        const originalBtnText = submitBtn.innerHTML;
+     *//**
+ * Handle form submission - FIXED VERSION
+ */
+async handleFormSubmission(form, fields) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const messageDiv = document.getElementById('formMessage');
+    const originalBtnText = submitBtn.innerHTML;
 
-        // Validate all fields
-        let isFormValid = true;
-        Object.entries(fields).forEach(([fieldName, field]) => {
-            if (field && !this.validateField(fieldName, field)) {
-                isFormValid = false;
+    // Validate all fields
+    let isFormValid = true;
+    Object.entries(fields).forEach(([fieldName, field]) => {
+        if (field && !this.validateField(fieldName, field)) {
+            isFormValid = false;
+        }
+    });
+
+    if (!isFormValid) {
+        this.showFormMessage('Please correct the errors above', 'error');
+        return;
+    }
+
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+    messageDiv.style.display = 'none';
+
+    try {
+        const formData = new FormData(form);
+        
+     
+        const response = await fetch('connect.php', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
             }
         });
 
-        if (!isFormValid) {
-            this.showFormMessage('Please correct the errors above', 'error');
-            return;
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        // Show loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        messageDiv.style.display = 'none';
+        const result = await response.json();
 
-        try {
-            const formData = new FormData(form);
-            const response = await fetch('/solaris/connect.php', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
+        if (result.success) {
+            this.showFormMessage(result.message || 'Message sent successfully!', 'success');
+            form.reset();
+            
+            // Clear all field validations
+            Object.values(fields).forEach(field => {
+                if (field) {
+                    this.clearFieldError(field);
+                    field.classList.remove('valid');
+                    const validIcon = field.parentElement.querySelector('.valid-icon');
+                    if (validIcon) validIcon.style.display = 'none';
                 }
             });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const result = await response.json();
-
-            if (result.success) {
-                this.showFormMessage(result.message || 'Message sent successfully!', 'success');
-                form.reset();
-                Object.values(fields).forEach(field => {
-                    if (field) this.clearFieldError(field);
-                });
+        } else {
+            // Handle both single error message and multiple errors
+            if (result.errors && Array.isArray(result.errors)) {
+                this.showFormMessage(result.errors.join(', '), 'error');
             } else {
-                this.showFormMessage(result.error || 'An error occurred. Please try again.', 'error');
+                this.showFormMessage(result.message || result.error || 'An error occurred. Please try again.', 'error');
             }
-
-        } catch (error) {
-            console.error('Form submission error:', error);
-            this.showFormMessage('Network error. Please check your connection and try again.', 'error');
-        } finally {
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
         }
+
+    } catch (error) {
+        console.error('Form submission error:', error);
+        this.showFormMessage('Network error. Please check your connection and try again.', 'error');
+    } finally {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
     }
+}
 
     /**
      * Show form message

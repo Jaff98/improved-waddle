@@ -1,4 +1,5 @@
 <?php
+
 // Include the configuration file
 require_once 'config.php';
 
@@ -49,9 +50,9 @@ try {
             exit;
         }
         
-        // Insert into database
-        $sql = "INSERT INTO contact_submissions (name, email, subject, message, created_at) 
-                VALUES (:name, :email, :subject, :message, NOW())";
+        // FIXED: Use correct column name 'submitted_at' instead of 'created_at'
+        $sql = "INSERT INTO contact_submissions (name, email, subject, message, submitted_at, status) 
+                VALUES (:name, :email, :subject, :message, NOW(), 'new')";
         
         $stmt = $pdo->prepare($sql);
         $result = $stmt->execute([

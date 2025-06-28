@@ -1,9 +1,9 @@
 <?php
 require_once 'config.php';
 try {
-    $pdo = getDBConnection();
-    echo "Database connection successful!";
+    $stmt = $pdo->query('SELECT 1');
+    echo 'DB works!';
 } catch (Exception $e) {
-    echo "Connection failed: " . $e->getMessage();
+    echo 'DB error: ' . $e->getMessage();
 }
 ?>
