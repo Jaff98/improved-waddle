@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require_once 'config.php';
 
@@ -154,7 +158,7 @@ $stats = $pdo->query("SELECT
                         <td><a href="mailto:<?= htmlspecialchars($submission['email']) ?>"><?= htmlspecialchars($submission['email']) ?></a></td>
                         <td><?= htmlspecialchars($submission['subject'] ?: 'No Subject') ?></td>
                         <td class="message" title="<?= htmlspecialchars($submission['message']) ?>">
-                            <?= htmlspecialchars(substr($submission['message'], 0, 50) . (strlen($submission['message']) > 50 ? '...' : '')) ?>
+                            <?= htmlspecialchars(substr($submission['message'], 0, 250) . (strlen($submission['message']) > 250 ? '...' : '')) ?>
                         </td>
                         <td class="status-<?= $submission['status'] ?>">
                             <?= ucfirst($submission['status']) ?>

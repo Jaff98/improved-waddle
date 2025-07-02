@@ -1,6 +1,6 @@
 <?php
 // Database Configuration
-define('DB_HOST', 'localhost:3306'); 
+define('DB_HOST', 'localhost'); 
 define('DB_NAME', 'solabdmh_solaris_db');
 define('DB_USER', 'solabdmh_balen');
 define('DB_PASS', 'Dolaby@jaf123');
